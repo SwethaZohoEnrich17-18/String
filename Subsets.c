@@ -8,18 +8,17 @@ int main()
     scanf("%d", &len);
     scanf("%s", string);
     n = len;
-    printf("\n");
     for (i = 1;i <= n;i++)
     {
         subset(0, 0, i);
     }
 }
-void subset(int start, int index, int num_sub)
+void subset(int start, int index, int subs)
 {
     int i, j;
-    if (index - start + 1  ==  num_sub)
+    if (index - start + 1  ==  subs)
     {
-        if (num_sub  ==  1)
+        if (subs  ==  1)
         {
             for (i = 0;i < n;i++)
                 printf("%c\n", string[i]);
@@ -32,12 +31,12 @@ void subset(int start, int index, int num_sub)
                     printf("%c", string[i]);
                 printf("%c\n", string[j]);
             }
-            if (start != n - num_sub)
-                subset(start + 1, start + 1, num_sub);
+            if (start != n - subs)
+                subset(start + 1, start + 1, subs);
         }
     }
     else
     {
-        subset(start, index + 1, num_sub);
+        subset(start, index + 1, subs);
     }
 }
